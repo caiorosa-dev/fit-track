@@ -1,33 +1,87 @@
-# `Turborepo` Vite starter
+# Fit Track
 
-This is an official starter Turborepo.
+Fit Track is a monorepo project designed to help users track their fitness activities. It leverages a modern tech stack including React, TypeScript, Vite, and NestJS, organized using Turborepo.
 
-## Using this example
+## Table of Contents
 
-Run the following command:
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Scripts](#scripts)
+- [Environment Variables](#environment-variables)
+- [License](#license)
 
-```sh
-npx create-turbo@latest -e with-vite
-```
+## Getting Started
 
-## What's inside?
+To get started with Fit Track, follow these steps:
 
-This Turborepo includes the following packages and apps:
+1. **Clone the repository:**
 
-### Apps and Packages
+   ```bash
+   git clone <repository-url>
+   cd fit-track
+   ```
 
-- `docs`: a vanilla [vite](https://vitejs.dev) ts app
-- `web`: another vanilla [vite](https://vitejs.dev) ts app
-- `@repo/ui`: a stub component & utility library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: shared `eslint` configurations
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+2. **Install dependencies:**
 
-Each package and app is 100% [TypeScript](https://www.typescriptlang.org/).
+   This project uses Yarn as its package manager. Run the following command to install all necessary dependencies:
 
-### Utilities
+   ```bash
+   yarn install
+   ```
 
-This Turborepo has some additional tools already setup for you:
+3. **Set up the database:**
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+   Fit Track uses MariaDB as its database. You can start the database using Docker:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+   Ensure that the database is running and accessible.
+
+4. **Run database migrations:**
+
+   Apply the database migrations using Prisma:
+
+   ```bash
+   yarn prisma migrate dev
+   ```
+
+5. **Start the development server:**
+
+   You can start the development server for both the API and the web application using:
+
+   ```bash
+   yarn dev
+   ```
+
+   This will start the API server on port 3000 and the web application on the default Vite port.
+
+## Project Structure
+
+The project is organized as a monorepo with the following structure:
+
+- `apps/api`: The backend API built with NestJS and Prisma.
+- `apps/web`: The frontend application built with React, TypeScript, and Vite.
+
+## Scripts
+
+Here are some useful scripts you can run:
+
+- `yarn dev`: Start the development server for both the API and web applications.
+- `yarn build`: Build the project for production.
+- `yarn start`: Start the production server.
+- `yarn lint`: Run ESLint to check for code quality issues.
+- `yarn format`: Format the code using Prettier.
+
+## Environment Variables
+
+The project requires certain environment variables to be set. You can define them in a `.env` file at the root of the project. Here are the required variables:
+
+- `DATABASE_URL`: The connection string for the MariaDB database.
+- `VITE_API_URL`: The base URL for the API.
+- `JWT_SECRET`: The secret key for JWT authentication.
+
+## License
+
+Fit Track is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
