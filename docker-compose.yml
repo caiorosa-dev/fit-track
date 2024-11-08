@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb
+    restart: unless-stopped
+    environment:
+      - MARIADB_USER=docker
+      - MARIADB_PASSWORD=docker
+      - MARIADB_DATABASE=fit-track
+    ports:
+      - '3306:3306'
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:

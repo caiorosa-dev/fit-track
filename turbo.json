@@ -1,0 +1,43 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    ".env"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "lint": {},
+    "db:migrate": {},
+    "preview": {
+      "dependsOn": [
+        "^preview"
+      ]
+    },
+    "start": {
+      "dependsOn": [
+        "db:migrate",
+        "^start"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  },
+  "globalEnv": [
+    "NODE_ENV",
+    "DATABASE_URL",
+    "VITE_API_URL",
+    "JWT_SECRET"
+  ]
+}
