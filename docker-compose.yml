@@ -8,6 +8,7 @@ services:
       - MARIADB_USER=docker
       - MARIADB_PASSWORD=docker
       - MARIADB_DATABASE=fit-track
+      - MARIADB_ROOT_PASSWORD=docker
     ports:
       - '3306:3306'
     volumes:
