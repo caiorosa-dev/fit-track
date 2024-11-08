@@ -10,7 +10,7 @@ services:
       - MARIADB_DATABASE=fit-track
       - MARIADB_ROOT_PASSWORD=docker
     ports:
-      - '3306:3306'
+      - '3310:3306'
     volumes:
       - db-data:/var/lib/mysql
 
