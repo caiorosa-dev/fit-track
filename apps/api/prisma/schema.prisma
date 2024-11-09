@@ -46,8 +46,8 @@ model Execise {
   description String
   type        ExecisesType
 
-  workout_exercises WorkoutExercise[]
-  exercises_logs    ExerciseLog[]
+  workoutExercises WorkoutExercise[]
+  exerciseLogs     ExerciseLog[]
 
   @@map("exercise")
 }
@@ -62,8 +62,8 @@ model Workout {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  workout_exercises WorkoutExercise[]
-  workout_sessions  WorkoutSession[]
+  workoutExercises WorkoutExercise[]
+  workoutSessions  WorkoutSession[]
 
   @@map("workout")
 }
