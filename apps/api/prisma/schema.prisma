@@ -41,69 +41,69 @@ enum ExecisesType {
 }
 
 model Execise {
-  id          Int    @id @default(autoincrement())
-  name        String @db.VarChar(255)
+  id          Int          @id @default(autoincrement())
+  name        String       @db.VarChar(255)
   description String
-  type ExecisesType 
+  type        ExecisesType
 
-  workout_exercises Workout_Exercise[]
-  exercises_logs Exercise_Log[]
+  workout_exercises WorkoutExercise[]
+  exercises_logs    ExerciseLog[]
 
-  @@map("exercise") 
+  @@map("exercise")
 }
 
 model Workout {
-  id Int @id @default(autoincrement())
-  userId Int @map("user_id")
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  name String @db.VarChar(255)
-  weekday Int 
-  
+  id      Int    @id @default(autoincrement())
+  userId  Int    @map("user_id")
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name    String @db.VarChar(255)
+  weekday Int
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  workout_exercises Workout_Exercise[]
-  workout_sessions Workout_Session[]
+  workout_exercises WorkoutExercise[]
+  workout_sessions  WorkoutSession[]
 
   @@map("workout")
 }
 
-model Workout_Exercise {
-  id Int @id @default(autoincrement())
+model WorkoutExercise {
+  id    Int @id @default(autoincrement())
   order Int
 
-  workoutId Int @map("workout_id")
-  workout Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
-  exerciseId Int @map("exercise_id")
-  exercise Execise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  workoutId  Int     @map("workout_id")
+  workout    Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  exerciseId Int     @map("exercise_id")
+  exercise   Execise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
 
   @@map("workout_exercise")
 }
 
-model Workout_Session {
-  id Int @id @default(autoincrement())
+model WorkoutSession {
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
 
-  workoutId Int @map("workout_id")
-  workout Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  workoutId Int     @map("workout_id")
+  workout   Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
 
-  exercises_logs Exercise_Log[] 
+  exercises_logs ExerciseLog[]
 
   @@map("workout_session")
 }
 
-model Exercise_Log {
+model ExerciseLog {
   id Int @id @default(autoincrement())
-  
-  workoutSessionId Int @map("workout_session_id")
-  workoutSession Workout_Session @relation(fields: [workoutSessionId], references: [id], onDelete: Cascade)
-  exerciseId Int @map("exercise_id")
-  exercise Execise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
 
-  sets Int
+  workoutSessionId Int            @map("workout_session_id")
+  workoutSession   WorkoutSession @relation(fields: [workoutSessionId], references: [id], onDelete: Cascade)
+  exerciseId       Int            @map("exercise_id")
+  exercise         Execise        @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  sets        Int
   repetitions Int
-  weight Decimal @default(2.5) @db.Decimal()
-  createdAt DateTime @default(now())
+  weight      Decimal
+  createdAt   DateTime @default(now())
 
   @@map("exercise_log")
 }
