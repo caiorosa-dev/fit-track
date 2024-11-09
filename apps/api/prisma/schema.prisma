@@ -18,10 +18,92 @@ model User {
   email    String @unique
   password String
 
-  name String?
+  name String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  workouts Workout[]
+
   @@map("users")
+}
+
+enum ExecisesType {
+  CHEST
+  BACK
+  SHOULDERS
+  BICEPS
+  TRICEPS
+  LEGS
+  ABS
+  CARDIO
+  GLUTEOS
+}
+
+model Execise {
+  id          Int    @id @default(autoincrement())
+  name        String @db.VarChar(255)
+  description String
+  type ExecisesType 
+
+  workout_exercises Workout_Exercise[]
+  exercises_logs Exercise_Log[]
+
+  @@map("exercise") 
+}
+
+model Workout {
+  id Int @id @default(autoincrement())
+  userId Int @map("user_id")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name String @db.VarChar(255)
+  weekday Int 
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  workout_exercises Workout_Exercise[]
+  workout_sessions Workout_Session[]
+
+  @@map("workout")
+}
+
+model Workout_Exercise {
+  id Int @id @default(autoincrement())
+  order Int
+
+  workoutId Int @map("workout_id")
+  workout Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  exerciseId Int @map("exercise_id")
+  exercise Execise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  @@map("workout_exercise")
+}
+
+model Workout_Session {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  workoutId Int @map("workout_id")
+  workout Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+
+  exercises_logs Exercise_Log[] 
+
+  @@map("workout_session")
+}
+
+model Exercise_Log {
+  id Int @id @default(autoincrement())
+  
+  workoutSessionId Int @map("workout_session_id")
+  workoutSession Workout_Session @relation(fields: [workoutSessionId], references: [id], onDelete: Cascade)
+  exerciseId Int @map("exercise_id")
+  exercise Execise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  sets Int
+  repetitions Int
+  weight Decimal @default(2.5) @db.Decimal()
+  createdAt DateTime @default(now())
+
+  @@map("exercise_log")
 }
