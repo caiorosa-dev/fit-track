@@ -6,8 +6,8 @@ import { Exercise, Prisma } from '@prisma/client';
 export class ExercisesService {
     constructor(private prisma: PrismaService) {}
 
-    async findAll(): Promise<Exercise[]> {
-        return this.prisma.execise.findMany();
+    async findAll(filters: { [key: string]: any }): Promise<Exercise[]> {
+        return this.prisma.execise.findMany({ where: filters });
     }
 
     async findByType(type: string): Promise<Exercise | null> {

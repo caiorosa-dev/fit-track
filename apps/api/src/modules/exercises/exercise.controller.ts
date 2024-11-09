@@ -1,7 +1,8 @@
 import {
     Controller,
     Get,
-    Param,
+    Query,
+    BadRequestException,
 } from '@nestjs/common';
 import { ExercisesService } from './exercise.service';
 
@@ -9,8 +10,16 @@ import { ExercisesService } from './exercise.service';
 export class ExercisesController {
     constructor(private readonly exercisesService: ExercisesService) {}
 
-    @Get(':type')
-    async getExerciseByType(@Param('type') type: string) {
-        return this.exercisesService.findByType(type);
+    @Get()
+    async findAll(@Query() filters: any) {
+        if(filters.type && typeof filters.type !== 'string') {
+            throw new BadRequestException('O tipo deve ser uma string');
+        }
+
+        if(filters.level && typeof filters.level !== 'string') {
+            throw new BadRequestException('O nível deve ser uma string');
+        }
+
+        return this.exercisesService.findAll(filters);
     }
 }
