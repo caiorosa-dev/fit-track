@@ -28,7 +28,7 @@ model User {
   @@map("users")
 }
 
-enum ExecisesType {
+enum ExerciseType {
   CHEST
   BACK
   SHOULDERS
@@ -40,11 +40,11 @@ enum ExecisesType {
   GLUTEOS
 }
 
-model Execise {
+model Exercise {
   id          Int          @id @default(autoincrement())
   name        String       @db.VarChar(255)
   description String
-  type        ExecisesType
+  type        ExerciseType
 
   workoutExercises WorkoutExercise[]
   exerciseLogs     ExerciseLog[]
@@ -72,10 +72,10 @@ model WorkoutExercise {
   id    Int @id @default(autoincrement())
   order Int
 
-  workoutId  Int     @map("workout_id")
-  workout    Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
-  exerciseId Int     @map("exercise_id")
-  exercise   Execise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  workoutId  Int      @map("workout_id")
+  workout    Workout  @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  exerciseId Int      @map("exercise_id")
+  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
 
   @@map("workout_exercise")
 }
@@ -98,7 +98,7 @@ model ExerciseLog {
   workoutSessionId Int            @map("workout_session_id")
   workoutSession   WorkoutSession @relation(fields: [workoutSessionId], references: [id], onDelete: Cascade)
   exerciseId       Int            @map("exercise_id")
-  exercise         Execise        @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  exercise         Exercise       @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
 
   sets        Int
   repetitions Int

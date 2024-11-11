@@ -1,14 +1,25 @@
-/*
-  Warnings:
+-- CreateTable
+CREATE TABLE `users` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `email` VARCHAR(191) NOT NULL,
+    `password` VARCHAR(191) NOT NULL,
+    `name` VARCHAR(191) NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
 
-  - You are about to drop the `Workout` table. If the table is not empty, all the data it contains will be lost.
+    UNIQUE INDEX `users_email_key`(`email`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-*/
--- DropForeignKey
-ALTER TABLE `Workout` DROP FOREIGN KEY `Workout_user_id_fkey`;
+-- CreateTable
+CREATE TABLE `exercise` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `description` VARCHAR(191) NOT NULL,
+    `type` ENUM('CHEST', 'BACK', 'SHOULDERS', 'BICEPS', 'TRICEPS', 'LEGS', 'ABS', 'CARDIO', 'GLUTEOS') NOT NULL,
 
--- DropTable
-DROP TABLE `Workout`;
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
 CREATE TABLE `workout` (
@@ -48,7 +59,7 @@ CREATE TABLE `exercise_log` (
     `exercise_id` INTEGER NOT NULL,
     `sets` INTEGER NOT NULL,
     `repetitions` INTEGER NOT NULL,
-    `weight` DECIMAL NOT NULL DEFAULT 2.5,
+    `weight` DECIMAL(65, 30) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     PRIMARY KEY (`id`)
