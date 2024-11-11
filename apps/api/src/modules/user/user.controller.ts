@@ -3,7 +3,6 @@ import {
   Get,
   Post,
   Body,
-  Param,
   Put,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -13,7 +12,7 @@ import { AuthenticatedUser } from 'src/shared/decorators/authenticated-user.deco
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly userService: UsersService) {}
+  constructor(private readonly userService: UsersService) { }
 
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
@@ -21,12 +20,12 @@ export class UsersController {
   }
 
   @Get('me')
-  me(@AuthenticatedUser() user: AuthenticatedUser) {
-    return this.userService.findOne(user.id);
+  me(@AuthenticatedUser() auth: AuthenticatedUser) {
+    return this.userService.findOne(auth.id);
   }
 
   @Put()
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(id, updateUserDto);
+  update(@AuthenticatedUser() auth: AuthenticatedUser, @Body() updateUserDto: UpdateUserDto) {
+    return this.userService.update(auth.id, updateUserDto);
   }
 }

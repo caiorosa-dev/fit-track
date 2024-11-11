@@ -3,12 +3,10 @@ import {
   UnauthorizedException,
   createParamDecorator,
 } from '@nestjs/common';
-import { UserRole } from '@prisma/client';
 
 export type AuthenticatedUser = {
   id: string;
   email: string;
-  role: UserRole;
 };
 
 export const AuthenticatedUser = createParamDecorator<undefined>(
