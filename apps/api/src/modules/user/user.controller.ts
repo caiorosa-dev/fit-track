@@ -4,6 +4,8 @@ import {
   Post,
   Body,
   Put,
+  Param,
+  ParseIntPipe
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -28,4 +30,10 @@ export class UsersController {
   update(@AuthenticatedUser() auth: AuthenticatedUser, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.update(auth.id, updateUserDto);
   }
+
+  @Put(':id')
+  async updateUser( @Param('id', ParseIntPipe) id: number, @Body() UpdateUserDto: UpdateUserDto,) {
+    return this.userService.updateUser(id, UpdateUserDto);
+  }
+
 }
