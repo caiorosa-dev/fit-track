@@ -1,7 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/shared/prisma/prisma.service";
 import { Workout, Prisma } from "@prisma/client";
-import { PrismaModule } from "src/shared/prisma/prisma.module";
+import { CreateWorkoutDto } from "./dto/create-workout.dto"; 
+import { connect } from "http2";
 
 @Injectable()
 export class WorkoutService {
@@ -9,7 +10,15 @@ export class WorkoutService {
 
   async createWorkout(data: Prisma.WorkoutCreateInput): Promise<Workout> {
     return this.prisma.workout.create({
-      data,
+      data: {
+        name: data.name,
+        description: data.description,
+        duration: data.duration,
+        exercises: {
+          connect: data.workout_exercises.map((exerciseId) => ({ id: exerciseId })),
+        },
+      },
+      include: { exercises: true },
     });
   }
 
