@@ -2,13 +2,12 @@ import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/shared/prisma/prisma.service";
 import { Workout, Prisma } from "@prisma/client";
 import { CreateWorkoutDto } from "./dto/create-workout.dto"; 
-import { connect } from "http2";
 
 @Injectable()
 export class WorkoutService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async createWorkout(data: Prisma.WorkoutCreateInput): Promise<Workout> {
+  async create(data: Prisma.WorkoutCreateInput): Promise<Workout> {
     return this.prisma.workout.create({
       data: {
         name: data.name,
@@ -32,14 +31,14 @@ export class WorkoutService {
     });
   }
 
-  async updateWorkout(id: number, data: Prisma.WorkoutUpdateInput): Promise<Workout> {
+  async update(id: number, data: Prisma.WorkoutUpdateInput): Promise<Workout> {
     return this.prisma.workout.update({
       where: { id },
       data,
     });
   }
 
-  async deleteWorkout(id: number): Promise<Workout> {
+  async delete(id: number): Promise<Workout> {
     return this.prisma.workout.delete({
       where: { id },
     });
