@@ -7,7 +7,7 @@ import {
   Param,
   Body,
   ParseIntPipe,
-  NotFoundException
+  NotFoundException,
 } from '@nestjs/common';
 import { WorkoutsService } from './workout.service';
 import { Prisma } from '@prisma/client';
@@ -54,5 +54,16 @@ export class WorkoutsController {
     }
 
     return this.workoutService.delete(id);
+  }
+
+  @Get(':id')
+  async findUserHistory(@AuthenticatedUser() user: AuthenticatedUser, @Param('id', ParseIntPipe) id: number) {
+    const workout = await this.workoutService.findOne(id);
+
+    if (workout && workout.userId !== user.id) {
+      throw new NotFoundException();
+    }
+
+    return this.workoutService.findUserWorkouts(id);
   }
 }
