@@ -31,11 +31,7 @@ export class WorkoutsService {
     });
   }
 
-  async getAllWorkouts(): Promise<Workout[]> {
-    return this.prisma.workout.findMany();
-  }
-
-  async getWorkoutById(id: number): Promise<Workout | null> {
+  async findOne(id: number): Promise<Workout | null> {
     return this.prisma.workout.findUnique({
       where: { id },
     });

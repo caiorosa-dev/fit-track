@@ -23,12 +23,17 @@ export class WorkoutsController {
     return this.workoutService.create(createWorkoutDto, user.id);
   }
 
+  @Get()
+  async getUserWorkouts(@AuthenticatedUser() user: AuthenticatedUser) {
+    return this.workoutService.findUserWorkouts(user.id);
+  }
+
   @Get(':id')
   async getById(@AuthenticatedUser() user: AuthenticatedUser, @Param('id', ParseIntPipe) id: number) {
     const workout = await this.workoutService.findOne(id);
 
     if (workout && workout.userId !== user.id) {
-      throw new NotFoundException();
+      throw new NotFoundException({ message: 'Workout not found' });
     }
 
     return workout;
@@ -39,7 +44,7 @@ export class WorkoutsController {
     const workout = await this.workoutService.findOne(id);
 
     if (workout && workout.userId !== user.id) {
-      throw new NotFoundException();
+      throw new NotFoundException({ message: 'Workout not found' });
     }
 
     return this.workoutService.update(id, data);
@@ -50,20 +55,9 @@ export class WorkoutsController {
     const workout = await this.workoutService.findOne(id);
 
     if (workout && workout.userId !== user.id) {
-      throw new NotFoundException();
+      throw new NotFoundException({ message: 'Workout not found' });
     }
 
     return this.workoutService.delete(id);
-  }
-
-  @Get(':id')
-  async findUserHistory(@AuthenticatedUser() user: AuthenticatedUser, @Param('id', ParseIntPipe) id: number) {
-    const workout = await this.workoutService.findOne(id);
-
-    if (workout && workout.userId !== user.id) {
-      throw new NotFoundException();
-    }
-
-    return this.workoutService.findUserWorkouts(id);
   }
 }
