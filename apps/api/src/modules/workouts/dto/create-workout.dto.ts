@@ -1,13 +1,9 @@
-import { IsString, IsNotEmpty, IsOptional, IsArray, ArrayNotEmpty, IsInt } from "class-validator";
+import { IsString, IsNotEmpty, IsArray, ArrayNotEmpty, IsInt } from "class-validator";
 
 export class CreateWorkoutDto {
     @IsString()
     @IsNotEmpty()
     name: string;
-
-    @IsString()
-    @IsOptional()
-    description?: string;
 
     @IsInt()
     @IsNotEmpty()
