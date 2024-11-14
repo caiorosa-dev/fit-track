@@ -1,20 +1,20 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "src/shared/prisma/prisma.service";
-import { Workout, Prisma } from "@prisma/client";
-import { CreateWorkoutDto } from "./dto/create-workout.dto"; 
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/shared/prisma/prisma.service';
+import { Workout, Prisma } from '@prisma/client';
+import { CreateWorkoutDto } from './dto/create-workout.dto'; 
 
 @Injectable()
 export class WorkoutService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(data: Prisma.WorkoutCreateInput): Promise<Workout> {
+  async create(data: CreateWorkoutDto): Promise<Workout> {
     return this.prisma.workout.create({
       data: {
         name: data.name,
         description: data.description,
-        duration: data.duration,
+        weekday: data.weekday, 
         exercises: {
-          connect: data.workout_exercises.map((exerciseId) => ({ id: exerciseId })),
+          connect: data.exercises.map((exerciseId) => ({ id: exerciseId })),
         },
       },
       include: { exercises: true },
