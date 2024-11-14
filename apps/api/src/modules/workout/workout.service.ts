@@ -24,11 +24,18 @@ export class WorkoutsService {
     });
   }
 
-  async findAll(): Promise<Workout[]> {
+  async findUserWorkouts(userId: number): Promise<Workout[]> {
+    return this.prisma.workout.findMany({
+      where: { userId },
+      orderBy: { createdAt: 'desc' },
+    });
+  }
+
+  async getAllWorkouts(): Promise<Workout[]> {
     return this.prisma.workout.findMany();
   }
 
-  async findOne(id: number): Promise<Workout | null> {
+  async getWorkoutById(id: number): Promise<Workout | null> {
     return this.prisma.workout.findUnique({
       where: { id },
     });
@@ -44,13 +51,6 @@ export class WorkoutsService {
   async delete(id: number): Promise<Workout> {
     return this.prisma.workout.delete({
       where: { id },
-    });
-  }
-
-  async findUserWorkouts(userId: number): Promise<Workout[]> {
-    return this.prisma.workout.findMany({
-      where: { userId },
-      orderBy: { createdAt: 'desc' },
     });
   }
 }
