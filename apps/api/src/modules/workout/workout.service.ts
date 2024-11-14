@@ -46,4 +46,11 @@ export class WorkoutsService {
       where: { id },
     });
   }
+
+  async findUserWorkouts(userId: number): Promise<Workout[]> {
+    return this.prisma.workout.findMany({
+      where: { userId },
+      orderBy: { createdAt: 'desc' },
+    });
+  }
 }
