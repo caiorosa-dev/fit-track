@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 
 export type AuthenticatedUser = {
-  id: string;
+  id: number;
   email: string;
 };
 
