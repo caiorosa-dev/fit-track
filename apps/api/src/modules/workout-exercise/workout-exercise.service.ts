@@ -5,10 +5,10 @@ import { PrismaService } from "src/shared/prisma/prisma.service";
 export class WorkoutExerciseService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(workoutId: number, exerciseId: number, order: number) {
+  async create(workoutSession: number, exerciseId: number, order: number) {
     return this.prisma.workout_Exercise.create({
       data: {
-        workoutId,
+        workoutSession,
         exerciseId,
         order,
       }

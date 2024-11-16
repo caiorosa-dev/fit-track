@@ -8,9 +8,9 @@ export class WorkoutExerciseController {
   constructor(private readonly workoutExerciseService: WorkoutExerciseService) {}
 
   @Post()
-  async create(@Body() createWorkoutExerciseDto: { workoutId: number; exerciseId: number; order: number }) {
-    const { workoutId, exerciseId, order } = createWorkoutExerciseDto;
-    return this.workoutExerciseService.create(workoutId, exerciseId, order);
+  async create(@Body() createWorkoutExerciseDto: createWorkoutExerciseDto) {
+    const { workoutSession, exerciseId, order } = createWorkoutExerciseDto;
+    return this.workoutExerciseService.create(workoutSession, exerciseId, order);
   }
 
   @Get(':workoutId')

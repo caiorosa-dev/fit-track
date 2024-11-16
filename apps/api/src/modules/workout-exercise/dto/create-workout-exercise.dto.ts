@@ -2,7 +2,7 @@ import { IsInt, Min } from "class-validator";
 
 export class createWorkoutExerciseDto {
   @IsInt()
-  workoutId: number;
+  workoutSession: number;
 
   @IsInt()
   exerciseId: number;
