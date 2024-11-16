@@ -8,22 +8,40 @@ export class WorkoutSessionService {
 
   async createWorkoutSession(workoutId: number): Promise<Workout_Session> {
     return this.prisma.workout_Session.create({
-      data: { workoutId},
+      data: {
+        workoutId
+      },
     });
   }
 
-  async getWorkoutSession(workoutId: number): Promise<Workout_Session[]> {
+  async getAllWorkoutSessions(workoutId: number): Promise<Workout_Session[]> {
     return this.prisma.workout_Session.findMany({
-      where: { workoutId },
-      include: { exercises_logs: true },
-      orderBy: { createdAt: 'desc' },
+      where: {
+        workoutId
+      },
+      include: {
+        exercises_logs: true
+      },
+      orderBy: {
+        createdAt: 'desc'
+      },
     });
   }
 
   async getWorkoutSessionById(id: number): Promise<Workout_Session | null> {
     return this.prisma.workout_Session.findUnique({
+      where: {
+        id
+      },
+      include: {
+        exercises_logs: true
+      },
+    });
+  }
+
+  async deleteSession(id: number): Promise<Workout_Session> {
+    return this.prisma.workout_Session.delete({
       where: { id },
-      include: { exercises_logs: true },
     });
   }
 }
