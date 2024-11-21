@@ -1,27 +1,33 @@
-import { Controller, Get, Post, Param, Body, Delete } from "@nestjs/common";
+import { Controller, Get, Post, Param, Delete, Body } from "@nestjs/common";
 import { WorkoutSessionService } from "./workout-session.service";
+import { AuthenticatedUser } from 'src/shared/decorators/authenticated-user.decorator';
 
 @Controller('workout-sessions')
 export class WorkoutSessionController {
-  constructor(private readonly workoutSessionService: WorkoutSessionService) {}
+  constructor(private readonly workoutSessionService: WorkoutSessionService) { }
 
-  @Post(':workoutId')
-  async createWorkoutSession(@Param('workoutId') workoutId: number) {
-    return this.workoutSessionService.createWorkoutSession(workoutId);
+  @Get()
+  async getAll(@AuthenticatedUser() auth: AuthenticatedUser) {
+    return this.workoutSessionService.findAllByUserId(auth.id);
+  }
+
+  @Post()
+  async create(@Body('workoutId') workoutId: number) {
+    return this.workoutSessionService.create(workoutId);
   }
 
   @Get(':workoutId')
-  async getAllWorkoutSessions(@Param('workoutId') workoutId: number) {
-    return this.workoutSessionService.getAllWorkoutSessions(workoutId);
+  async getAllByWorkoutId(@Param('workoutId') workoutId: number) {
+    return this.workoutSessionService.findAllByWorkoutId(workoutId);
   }
 
-  @Get('session/:id')
-  async getWorkoutSessionById(@Param('id') id: number) {
-    return this.workoutSessionService.getWorkoutSessionById(id);
+  @Get(':id')
+  async getById(@Param('id') id: number) {
+    return this.workoutSessionService.findById(id);
   }
 
   @Delete(':id')
-  async deleteSession(@Param('id') id: number) {
-    return this.workoutSessionService.deleteSession(id);
+  async delete(@Param('id') id: number) {
+    return this.workoutSessionService.delete(id);
   }
 }
