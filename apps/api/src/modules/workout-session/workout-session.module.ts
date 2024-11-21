@@ -1,11 +1,10 @@
 import { Module } from "@nestjs/common";
 import { WorkoutSessionService } from "./workout-session.service";
 import { WorkoutSessionController } from "./workout-session.controller";
-import { PrismaService } from "src/shared/prisma/prisma.service";
 
 @Module({
   controllers: [WorkoutSessionController],
-  providers: [WorkoutSessionService, PrismaService],
+  providers: [WorkoutSessionService],
   exports: [WorkoutSessionService],
 })
-export class WorkoutSessionModule {}
+export class WorkoutSessionModule { }
