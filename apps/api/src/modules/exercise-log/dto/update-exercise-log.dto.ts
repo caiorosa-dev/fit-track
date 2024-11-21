@@ -1,11 +1,9 @@
 import { IsInt, IsPositive, IsDecimal, IsOptional } from 'class-validator';
 
-export class CreateExerciseLogDto {
+export class UpdateExerciseLogDto {
   @IsInt()
-  workoutSessionId: number;
-
-  @IsInt()
-  exerciseId: number;
+  @IsOptional()
+  exerciseId?: number;
 
   @IsInt()
   @IsPositive()
