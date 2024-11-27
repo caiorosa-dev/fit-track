@@ -84,4 +84,4 @@ The project requires certain environment variables to be set. You can define the
 
 ## License
 
-Fit Track is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+Fit Track is licensed under the AGPL-3.0 License. See the [LICENSE](LICENSE) file for more information.
