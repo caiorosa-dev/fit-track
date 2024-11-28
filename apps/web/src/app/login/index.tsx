@@ -116,6 +116,14 @@ function LoginPage() {
             </Button>
           </CardFooter>
         </Card>
+        <div className="h-4" />
+        <Button
+          disabled={form.isSubmitting}
+          type="submit"
+          className="w-full"
+          >
+            Não tem conta ainda? Crie uma agora!
+          </Button>
       </Form>
     </FullScreenPage>
   );
