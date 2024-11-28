@@ -6,7 +6,7 @@ export function FullScreenPage({
   className,
 }: PropsWithChildren<{ className?: string }>) {
   return (
-    <main className={cn('w-full min-h-screen h-full p-4', className)}>
+    <main className={cn('w-full min-h-screen h-full p-4 bg-emerald-500', className)}>
       {children}
     </main>
   );
