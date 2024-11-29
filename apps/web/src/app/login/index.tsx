@@ -66,7 +66,7 @@ function LoginPage() {
           <img
             src="/fit-track-logo.png"
             alt=''
-            className="w-25 h-20 transform -translate-x-1.5 -translate-y-5"
+            className="w-25 h-20 transform -translate-x-1.5 -translate-y-3"
           />
         </div>
         <Card className="w-full max-w-sm">
