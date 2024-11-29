@@ -21,7 +21,7 @@ function IndexPage() {
 
   return (
     <FullScreenPage>
-      <div className="max-w-xl w-full mx-auto pt-8 space-y-8">
+      <div className="max-w-xl w-full mx-auto pt-8 flex flex-col justify-between h-full">
         <Header hideBackButton>
           <div>
             <p className="text-muted-foreground text-sm">Bem vindo,</p>
