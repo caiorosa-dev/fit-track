@@ -4,6 +4,7 @@ import { useMe } from "@/hooks/api/use-me";
 import { FullScreenPage } from "@/components/full-screen-page";
 import { Header } from "@/components/blocks/header";
 import { Loading } from "@/components/loading";
+import { MobileNav } from "@/components/ui/mobile-nav";
 
 export const Route = createFileRoute("/")({
   component: IndexPage,
@@ -27,6 +28,7 @@ function IndexPage() {
             <h1>{user.name}</h1>
           </div>
         </Header>
+        <MobileNav />
       </div>
     </FullScreenPage>
   );
