@@ -65,6 +65,13 @@ function RegisterPage() {
   return (
     <FullScreenPage className="flex justify-center items-center">
       <Form {...form}>
+        <div className='flex flex-col items-center'>
+          <img
+            src="/fit-track-logo.png"
+            alt=''
+            className="w-25 h-20 transform -translate-x-1.5 -translate-y-3"
+          />
+        </div>
         <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle className="text-2xl">Registrar</CardTitle>
