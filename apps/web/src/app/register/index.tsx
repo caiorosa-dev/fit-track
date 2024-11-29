@@ -4,12 +4,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useZodForm } from "@/hooks/lib/use-zod-form";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
 import { toast } from "sonner";
 import { usePublicRoute } from "@/hooks/auth/use-public-route";
 import axios from "axios";
-import { useAuth } from '@/store/use-auth';
+import { useAuth } from "@/store/use-auth";
+import { Logo } from "@/components/ui/logo";
 
 export const Route = createFileRoute("/register/")({
   component: () => <RegisterPage />,
@@ -63,8 +64,9 @@ function RegisterPage() {
   usePublicRoute();
 
   return (
-    <FullScreenPage className="flex justify-center items-center">
+    <FullScreenPage className="flex justify-center items-center" gradient>
       <Form {...form}>
+        <Logo className="mx-auto mb-4" />
         <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle className="text-2xl">Registrar</CardTitle>
@@ -131,6 +133,11 @@ function RegisterPage() {
             </Button>
           </CardFooter>
         </Card>
+        <Link to="/login">
+          <Button disabled={form.isSubmitting} type="submit" className="w-full mt-4">
+            Já tem uma conta? Faça login agora!
+          </Button>
+        </Link>
       </Form>
     </FullScreenPage>
   );
