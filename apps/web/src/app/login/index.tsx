@@ -4,11 +4,12 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useZodForm } from "@/hooks/lib/use-zod-form";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/store/use-auth";
 import { z } from "zod";
 import { toast } from "sonner";
 import { usePublicRoute } from "@/hooks/auth/use-public-route";
+import { Logo } from "@/components/ui/logo";
 
 export const Route = createFileRoute("/login/")({
   component: () => <LoginPage />,
@@ -44,15 +45,9 @@ function LoginPage() {
   usePublicRoute();
 
   return (
-    <FullScreenPage className="flex justify-center items-center bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-zinc-400 via-teal-700 to-stone-400 dark:from-zinc-800 dark:via-teal-900 dark:to-stone-800">
+    <FullScreenPage className="flex justify-center items-center" gradient>
       <Form {...form}>
-        <div className='flex flex-col items-center'>
-          <img
-            src="/fit-track-logo.png"
-            alt=''
-            className="w-25 h-20 transform -translate-x-1.5 -translate-y-3"
-          />
-        </div>
+        <Logo className="mx-auto mb-4" />
         <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle className="text-2xl">Login</CardTitle>
@@ -93,10 +88,11 @@ function LoginPage() {
             </Button>
           </CardFooter>
         </Card>
-        <div className="h-4" />
-        <Button disabled={form.isSubmitting} type="submit" className="w-full">
-          Não tem conta ainda? Crie uma agora!
-        </Button>
+        <Link to="/register">
+          <Button disabled={form.isSubmitting} type="submit" className="w-full mt-4">
+            Não tem conta ainda? Crie uma agora!
+          </Button>
+        </Link>
       </Form>
     </FullScreenPage>
   );
