@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
 });
 
 function IndexPage() {
-  const { user, isLoading } = useMe();
+  const { user, isLoading } = useMe(); 
   const api = useApi();
   const [workouts, setWorkouts] = useState([]);
   const [loadingWorkouts, setLoadingWorkouts] = useState(true);
@@ -45,8 +45,8 @@ function IndexPage() {
       <div className="max-w-xl w-full mx-auto pt-8 flex flex-col justify-between h-full">
         <Header hideBackButton>
           <div>
-            <p className="text-muted-foreground text-sm">Bem vindo,</p>
-            <h1>{user.name}</h1>
+            <p className="text-muted-foreground text-sm">Bem-vindo,</p>
+            <h1>{user?.name ?? "Usuário"}</h1> {/* Proteção contra undefined */}
           </div>
         </Header>
         <div className="flex-grow flex flex-col items-center justify-center">
