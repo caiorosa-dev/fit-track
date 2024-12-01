@@ -3,22 +3,10 @@ import { useEffect, useState } from "react";
 import { useApi } from "@/hooks/lib/use-api";
 import { Header } from "@/components/blocks/header";
 import { Button } from "@/components/ui/button";
-import { Line } from "react-chartjs-2"; 
+import { Line } from "react-chartjs-2";
 import { Loading } from "@/components/loading";
 import { Link } from "@tanstack/react-router";
-import {
-  Chart as ChartJS,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
-
-
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
+import { FullScreenPage } from "@/components/full-screen-page";
 
 export const Route = createFileRoute("/weekly-workout/")({
   component: WeeklyWorkoutsPage,
@@ -32,7 +20,7 @@ function WeeklyWorkoutsPage() {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await api.get(`/workouts/weekly`);
+        const response = await api.get("/workouts/weekly");
         setWorkouts(response.data);
       } catch (error) {
         console.error("Erro ao buscar treinos semanais:", error);
@@ -48,20 +36,20 @@ function WeeklyWorkoutsPage() {
   }
 
   const chartData = {
-    labels: workouts.map((workout) => workout.date),
+    labels: workouts.map((workout) => workout.name),
     datasets: [
       {
-        label: "Progresso semanal",
-        data: workouts.map((workout) => workout.performance),
-        borderColor: "rgba(75, 192, 192, 1)",
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        borderWidth: 2,
+        label: "Número de Sessões por Treino",
+        data: workouts.map((workout) => workout.workoutSessions?.length || 0),
+        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(75,192,192,0.2)",
         fill: true,
       },
     ],
   };
 
   return (
+    <FullScreenPage className="" gradient>
     <div className="max-w-xl w-full mx-auto pt-8">
       <Header>
         <h1>Treinos da Semana</h1>
@@ -77,21 +65,10 @@ function WeeklyWorkoutsPage() {
         </div>
       ) : (
         <div className="mt-8">
-          <Line data={chartData} options={{
-            responsive: true,
-            plugins: {
-              legend: {
-                display: true,
-                position: "top",
-              },
-              title: {
-                display: true,
-                text: "Progresso dos Treinos Semanais",
-              },
-            },
-          }} />
+          <Line data={chartData} />
         </div>
       )}
     </div>
+    </FullScreenPage>
   );
 }

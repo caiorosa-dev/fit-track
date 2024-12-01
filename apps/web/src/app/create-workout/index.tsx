@@ -9,13 +9,12 @@ import { Input } from "@/components/ui/input";
 import { useNavigate } from "@tanstack/react-router";
 import { FullScreenPage } from "@/components/full-screen-page";
 
-// Esquema de validação do formulário
 const createWorkoutSchema = z.object({
   name: z.string().min(1, "O nome é obrigatório"),
   date: z.string().min(1, "A data é obrigatória"),
 });
 
-// Definindo a rota
+
 export const Route = createFileRoute("/create-workout/")({
   component: CreateWorkoutPage,
 });
@@ -73,6 +72,11 @@ function CreateWorkoutPage() {
           {loading ? "Criando..." : "Criar Treino"}
         </Button>
       </form>
+
+      //sei que vai editar isso dps colocando aquela setinha no topo para voltar pra home
+      <Link to="/">
+          <Button className="w-full mt-4">Voltar para Home</Button>
+        </Link>
     </div>
     </FullScreenPage>
   );
