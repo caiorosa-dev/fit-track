@@ -15,7 +15,7 @@ const createWorkoutSchema = z.object({
 });
 
 
-export const Route = createFileRoute("/create-workout/")({
+export const Route = createFileRoute("/app/create-workout/")({
   component: CreateWorkoutPage,
 });
 
@@ -31,7 +31,7 @@ function CreateWorkoutPage() {
     resolver: zodResolver(createWorkoutSchema),
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: unknown) => {
     setLoading(true);
     try {
       await api.post("/workouts", data);
@@ -55,7 +55,7 @@ function CreateWorkoutPage() {
               control={control}
               render={({ field }) => <Input {...field} placeholder="Nome do Treino" />}
             />
-            {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+            {errors.name && <p className="text-red-500 text-sm">{errors.name.message as string}</p>}
           </div>
 
           <div>
@@ -65,7 +65,7 @@ function CreateWorkoutPage() {
               control={control}
               render={({ field }) => <Input type="date" {...field} />}
             />
-            {errors.date && <p className="text-red-500 text-sm">{errors.date.message}</p>}
+            {errors.date && <p className="text-red-500 text-sm">{errors.date.message as string}</p>}
           </div>
 
           <Button type="submit" className="w-full" disabled={loading}>

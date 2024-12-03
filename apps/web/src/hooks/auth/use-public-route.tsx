@@ -6,6 +6,6 @@ export function usePublicRoute() {
   const navigate = useNavigate();
 
   if (isAuthenticated) {
-    navigate({ to: '/' });
+    navigate({ to: '/app' });
   }
 }

@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     TanStackRouterVite({
-      routesDirectory: 'src/app',
+      routesDirectory: 'src/pages',
       quoteStyle: 'single',
       semicolons: true,
       routeFileIgnorePattern: '^(_|\\()',

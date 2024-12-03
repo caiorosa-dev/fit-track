@@ -7,7 +7,7 @@ import { Loading } from "@/components/loading";
 import { Link } from "@tanstack/react-router";
 import { FullScreenPage } from "@/components/full-screen-page";
 
-export const Route = createFileRoute("/weekly-workout/")({
+export const Route = createFileRoute("/app/weekly-workout/")({
   component: WeeklyWorkoutsPage,
 });
 
