@@ -13,8 +13,8 @@ type MobileNavLinkProps = {
   label: string;
 };
 
-function MobileNavLink({ to, icon: Icon, label }: MobileNavLinkProps) {
-  const isActive = window.location.pathname === to;
+function MobileNavLink({ to, icon: Icon, label, exact }: MobileNavLinkProps) {
+  const isActive = exact ? window.location.pathname === to : window.location.pathname.startsWith(to);
 
   return (
     <li className={`group rounded-md w-12 h-12 flex justify-center items-center ${isActive ? 'bg-primary' : 'bg-transparent'}`}>
