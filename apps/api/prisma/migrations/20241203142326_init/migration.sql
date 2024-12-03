@@ -18,6 +18,7 @@ CREATE TABLE `exercise` (
     `description` VARCHAR(191) NOT NULL,
     `type` ENUM('CHEST', 'BACK', 'SHOULDERS', 'BICEPS', 'TRICEPS', 'LEGS', 'ABS', 'CARDIO', 'GLUTEOS') NOT NULL,
 
+    UNIQUE INDEX `exercise_name_type_key`(`name`, `type`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

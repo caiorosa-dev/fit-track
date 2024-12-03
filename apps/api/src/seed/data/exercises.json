@@ -1,0 +1,492 @@
+[
+  {
+    "name": "Supino Reto",
+    "description": "Exercício de peito que trabalha principalmente o peitoral maior, além de tríceps e deltoides anteriores.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Supino Inclinado",
+    "description": "Foca a parte superior do peitoral maior, além de envolver deltoides e tríceps.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Supino Declinado",
+    "description": "Enfatiza a parte inferior do peitoral maior, além de trabalhar tríceps e ombros.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Crossover",
+    "description": "Isola o peitoral maior com foco na contração máxima durante o movimento.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Voador",
+    "description": "Exercício de isolamento para o peitoral maior, promovendo alongamento e contração muscular.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Dips para Peito",
+    "description": "Trabalha intensamente o peitoral maior e tríceps, com ênfase na parte inferior do peito.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Flexão de Braço",
+    "description": "Exercício de peso corporal que fortalece o peitoral maior, tríceps e deltoides anteriores.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Supino com Halteres",
+    "description": "Permite maior amplitude de movimento para o peitoral maior, além de trabalhar tríceps e ombros.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Crucifixo",
+    "description": "Isola o peitoral maior, promovendo um alongamento profundo e contração muscular eficiente.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Peck Deck",
+    "description": "Máquina que foca no peitoral maior, proporcionando uma contração isolada.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Flexão com Pés Elevados",
+    "description": "Aumenta a intensidade do trabalho no peitoral superior e deltoides.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Pullover",
+    "description": "Exercício que trabalha o peitoral maior e músculos das costas, ampliando a caixa torácica.",
+    "type": "CHEST"
+  },
+  {
+    "name": "Barra Fixa",
+    "description": "Fortalece os músculos das costas, principalmente o latíssimo do dorso, além de bíceps e antebraços.",
+    "type": "BACK"
+  },
+  {
+    "name": "Remada Curvada",
+    "description": "Exercício que trabalha o latíssimo do dorso, trapézio e rombóides, fortalecendo a parte superior das costas.",
+    "type": "BACK"
+  },
+  {
+    "name": "Puxada na Frente",
+    "description": "Foca no latíssimo do dorso e deltoides posteriores, desenvolvendo a largura das costas.",
+    "type": "BACK"
+  },
+  {
+    "name": "Puxada na Nuca",
+    "description": "Isola o latíssimo do dorso e os deltoides posteriores, aumentando a definição das costas.",
+    "type": "BACK"
+  },
+  {
+    "name": "Remada Unilateral",
+    "description": "Fortalece o latíssimo do dorso e rombóides, melhorando o equilíbrio muscular das costas.",
+    "type": "BACK"
+  },
+  {
+    "name": "Deadlift",
+    "description": "Exercício composto que trabalha todo o sistema posterior, incluindo costas, glúteos e isquiotibiais.",
+    "type": "BACK"
+  },
+  {
+    "name": "Hiperextensão",
+    "description": "Fortalece a lombar, glúteos e isquiotibiais, melhorando a estabilidade da coluna.",
+    "type": "BACK"
+  },
+  {
+    "name": "Remada Sentada",
+    "description": "Isola os músculos das costas, especialmente o latíssimo do dorso e trapézio.",
+    "type": "BACK"
+  },
+  {
+    "name": "Levantamento Terra",
+    "description": "Exercício completo para fortalecer a cadeia posterior, incluindo costas, glúteos e pernas.",
+    "type": "BACK"
+  },
+  {
+    "name": "T-Bar Row",
+    "description": "Foca no latíssimo do dorso e trapézio, promovendo desenvolvimento muscular nas costas.",
+    "type": "BACK"
+  },
+  {
+    "name": "Desenvolvimento com Halteres",
+    "description": "Exercício que trabalha os deltoides, especialmente a parte média e anterior.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Elevação Lateral",
+    "description": "Isola os deltoides laterais, aumentando a largura dos ombros.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Elevação Frontal",
+    "description": "Foca nos deltoides anteriores e auxilia no desenvolvimento do ombro.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Arnold Press",
+    "description": "Variante do desenvolvimento que trabalha todas as partes dos deltoides com rotação.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Remada Alta",
+    "description": "Exercício que trabalha os deltoides laterais e trapézio superior.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Desenvolvimento Militar",
+    "description": "Fortalece os deltoides, trapézio e tríceps, promovendo força e estabilidade nos ombros.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Encolhimento de Ombros",
+    "description": "Isola os trapézios, aumentando a força e a massa muscular na região dos ombros.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Crucifixo Inverso",
+    "description": "Trabalha os deltoides posteriores e parte superior das costas, melhorando a postura.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Face Pull",
+    "description": "Exercício que fortalece os deltoides posteriores e a parte superior das costas.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Elevação Lateral no Cabo",
+    "description": "Isola os deltoides laterais com resistência constante do cabo.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Desenvolvimento com Barra",
+    "description": "Fortalece os deltoides e tríceps com maior carga, promovendo crescimento muscular.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Pike Push-Up",
+    "description": "Variante de flexão que foca nos deltoides e tríceps, melhorando a força dos ombros.",
+    "type": "SHOULDERS"
+  },
+  {
+    "name": "Rosca Direta",
+    "description": "Exercício fundamental para o bíceps, promovendo força e hipertrofia muscular.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca Alternada",
+    "description": "Isola cada bíceps individualmente, promovendo equilíbrio muscular e força.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca Martelo",
+    "description": "Trabalha o bíceps e braquiorradial, melhorando a força do antebraço.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca Scott",
+    "description": "Exercício de isolamento para o bíceps, reduzindo a trapaça e focando na contração.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca Concentrada",
+    "description": "Isola o bíceps com foco máximo na contração e desenvolvimento muscular.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca Inversa",
+    "description": "Trabalha o braquiorradial e o bíceps com foco na parte inferior do músculo.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca 21",
+    "description": "Combina diferentes faixas de amplitude para maximizar a hipertrofia do bíceps.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca com Barra EZ",
+    "description": "Variante da rosca direta que reduz o estresse nos pulsos, trabalhando o bíceps de forma eficaz.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca no Cabo",
+    "description": "Mantém tensão constante no bíceps durante todo o movimento, promovendo crescimento muscular.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca na Máquina",
+    "description": "Permite controle total do movimento, isolando o bíceps para desenvolvimento muscular.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Rosca Spider",
+    "description": "Exercício de isolamento para o bíceps com foco na contração máxima na parte superior.",
+    "type": "BICEPS"
+  },
+  {
+    "name": "Tríceps na Polia",
+    "description": "Isola o tríceps com resistência constante, promovendo força e hipertrofia muscular.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Tríceps Francês",
+    "description": "Exercício que trabalha a cabeça longa do tríceps, melhorando a definição muscular.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Tríceps Testa",
+    "description": "Foca na cabeça longa do tríceps com amplitude de movimento para máxima contração.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Mergulho",
+    "description": "Exercício de peso corporal que fortalece o tríceps e o peitoral inferior.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Extensão de Tríceps com Halteres",
+    "description": "Isola o tríceps com foco na extensão completa do braço.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Tríceps Coice",
+    "description": "Trabalha o tríceps com foco na contração e extensão do braço.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Tríceps na Máquina",
+    "description": "Permite controle do movimento, isolando o tríceps para desenvolvimento muscular.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Tríceps com Barra",
+    "description": "Exercício composto que trabalha o tríceps com maior carga, promovendo força e massa muscular.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Tríceps Pullover",
+    "description": "Isola o tríceps com foco na extensão completa do braço, melhorando a definição muscular.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Kickback de Tríceps",
+    "description": "Exercício de isolamento que trabalha a contração do tríceps na extensão do braço.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Tríceps no Banco",
+    "description": "Isola o tríceps com controle total do movimento, promovendo força e hipertrofia.",
+    "type": "TRICEPS"
+  },
+  {
+    "name": "Agachamento",
+    "description": "Exercício fundamental para pernas, trabalhando quadríceps, glúteos e isquiotibiais.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Leg Press",
+    "description": "Fortalece os quadríceps, glúteos e isquiotibiais com movimento controlado.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Avanço",
+    "description": "Trabalha os quadríceps e glúteos, melhorando a estabilidade e força das pernas.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Extensão de Pernas",
+    "description": "Isola os quadríceps, promovendo força e hipertrofia na parte frontal das coxas.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Flexão de Pernas",
+    "description": "Isola os isquiotibiais, fortalecendo a parte posterior das coxas.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Stiff",
+    "description": "Fortalece os isquiotibiais e lombar, além de trabalhar os glúteos.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Cadeira Adutora",
+    "description": "Trabalha os músculos adutores das coxas, melhorando a estabilidade e força interna.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Cadeira Abdutora",
+    "description": "Isola os músculos abdutores das coxas, fortalecendo a parte externa das pernas.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Panturrilha no Leg Press",
+    "description": "Fortalece os músculos da panturrilha com resistência controlada.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Panturrilha em Pé",
+    "description": "Isola os músculos da panturrilha, promovendo força e definição na região.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Leg Curl",
+    "description": "Isola os isquiotibiais, fortalecendo a parte posterior das coxas.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Leg Extension",
+    "description": "Isola os quadríceps, promovendo força e hipertrofia na parte frontal das coxas.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Agachamento Frontal",
+    "description": "Foca mais nos quadríceps e no core, melhorando a estabilidade do tronco.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Agachamento Sumô",
+    "description": "Trabalha os glúteos, quadríceps e adutores com maior amplitude de abertura das pernas.",
+    "type": "GLUTEOS"
+  },
+  {
+    "name": "Step Up",
+    "description": "Exercício funcional que fortalece quadríceps e glúteos, melhorando o equilíbrio.",
+    "type": "LEGS"
+  },
+  {
+    "name": "Prancha",
+    "description": "Exercício isométrico que fortalece o core, incluindo abdominais e lombar.",
+    "type": "ABS"
+  },
+  {
+    "name": "Abdominal Crunch",
+    "description": "Isola os músculos abdominais superiores, promovendo força e definição na região.",
+    "type": "ABS"
+  },
+  {
+    "name": "Abdominal Infra",
+    "description": "Foca nos músculos abdominais inferiores, melhorando a definição da barriga.",
+    "type": "ABS"
+  },
+  {
+    "name": "Abdominal Oblíquo",
+    "description": "Trabalha os músculos oblíquos, melhorando a definição lateral do abdômen.",
+    "type": "ABS"
+  },
+  {
+    "name": "Abdominal na Bola",
+    "description": "Exercício que fortalece o core com maior estabilidade, utilizando uma bola de exercício.",
+    "type": "ABS"
+  },
+  {
+    "name": "Abdominal Bicicleta",
+    "description": "Exercício dinâmico que trabalha os abdominais superiores, inferiores e oblíquos.",
+    "type": "ABS"
+  },
+  {
+    "name": "Elevação de Pernas",
+    "description": "Isola os músculos abdominais inferiores, promovendo força e definição na região.",
+    "type": "ABS"
+  },
+  {
+    "name": "Ab Rollout",
+    "description": "Exercício avançado que fortalece todo o core com foco na estabilidade e força.",
+    "type": "ABS"
+  },
+  {
+    "name": "Russian Twist",
+    "description": "Trabalha os oblíquos e abdominais, melhorando a força rotacional do core.",
+    "type": "ABS"
+  },
+  {
+    "name": "Abdominal Reverse",
+    "description": "Isola os músculos abdominais inferiores, promovendo força e definição.",
+    "type": "ABS"
+  },
+  {
+    "name": "Sit-Up",
+    "description": "Exercício clássico que fortalece os músculos abdominais superiores e o core.",
+    "type": "ABS"
+  },
+  {
+    "name": "Corrida",
+    "description": "Atividade cardiovascular que melhora a resistência, queima calorias e fortalece as pernas.",
+    "type": "CARDIO"
+  },
+  {
+    "name": "Ciclismo",
+    "description": "Exercício cardiovascular que fortalece pernas e melhora a resistência aeróbica.",
+    "type": "CARDIO"
+  },
+  {
+    "name": "Pular Corda",
+    "description": "Atividade de alta intensidade que melhora a coordenação e queima calorias rapidamente.",
+    "type": "CARDIO"
+  },
+  {
+    "name": "Remo",
+    "description": "Exercício completo que trabalha o sistema cardiovascular e fortalece costas, braços e pernas.",
+    "type": "CARDIO"
+  },
+  {
+    "name": "Elíptico",
+    "description": "Máquina de cardio que trabalha o corpo todo com impacto reduzido nas articulações.",
+    "type": "CARDIO"
+  },
+  {
+    "name": "HIIT",
+    "description": "Treino intervalado de alta intensidade que maximiza a queima de calorias em curto período.",
+    "type": "CARDIO"
+  },
+  {
+    "name": "Natação",
+    "description": "Exercício cardiovascular de baixo impacto que trabalha todo o corpo e melhora a resistência.",
+    "type": "CARDIO"
+  },
+  {
+    "name": "Step Aeróbico",
+    "description": "Atividade que melhora a resistência cardiovascular e fortalece as pernas com movimentos rítmicos.",
+    "type": "CARDIO"
+  },
+  {
+    "name": "Ponte",
+    "description": "Exercício que fortalece os glúteos, isquiotibiais e a parte inferior das costas.",
+    "type": "GLUTEOS"
+  },
+  {
+    "name": "Agachamento Sumô",
+    "description": "Trabalha os glúteos, quadríceps e adutores com maior amplitude de abertura das pernas.",
+    "type": "GLUTEOS"
+  },
+  {
+    "name": "Avanço",
+    "description": "Fortalece os glúteos e quadríceps, melhorando o equilíbrio e a força das pernas.",
+    "type": "GLUTEOS"
+  },
+  {
+    "name": "Stiff",
+    "description": "Fortalece os isquiotibiais e glúteos, melhorando a força da cadeia posterior.",
+    "type": "GLUTEOS"
+  },
+  {
+    "name": "Elevação de Quadril",
+    "description": "Isola os glúteos, promovendo força e definição na parte posterior das pernas.",
+    "type": "GLUTEOS"
+  },
+  {
+    "name": "Abdução de Quadril",
+    "description": "Trabalha os músculos abdutores dos quadris, fortalecendo a parte externa das pernas.",
+    "type": "GLUTEOS"
+  },
+  {
+    "name": "Clamshell",
+    "description": "Exercício que fortalece os glúteos médios e melhora a estabilidade do quadril.",
+    "type": "GLUTEOS"
+  },
+  {
+    "name": "Hip Thrust",
+    "description": "Fortalece intensamente os glúteos, promovendo força e hipertrofia na região.",
+    "type": "GLUTEOS"
+  }
+]
