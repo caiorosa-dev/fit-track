@@ -9,10 +9,10 @@ import { DefaultLayout } from '@/components/layout/default-layout';
 import { ProtectedRoute } from '@/components/auth/protected-route';
 
 export const Route = createFileRoute("/app/")({
-  component: IndexPage,
+  component: AppHomePage,
 });
 
-function IndexPage() {
+function AppHomePage() {
   const { user, isLoading } = useMe();
   const api = useApi();
 
