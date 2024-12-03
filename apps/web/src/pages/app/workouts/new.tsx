@@ -14,8 +14,7 @@ const createWorkoutSchema = z.object({
   date: z.string().min(1, "A data é obrigatória"),
 });
 
-
-export const Route = createFileRoute("/app/create-workout/")({
+export const Route = createFileRoute("/app/workouts/new")({
   component: CreateWorkoutPage,
 });
 
@@ -49,7 +48,7 @@ function CreateWorkoutPage() {
         <h1 className="text-2xl mb-4">Criar Novo Treino</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Nome do Treino</label>
+            <label className="block text-sm font-medium text-slate-400">Nome do Treino</label>
             <Controller
               name="name"
               control={control}
@@ -59,7 +58,7 @@ function CreateWorkoutPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Data</label>
+            <label className="block text-sm font-medium text-slate-400">Data</label>
             <Controller
               name="date"
               control={control}
@@ -73,7 +72,6 @@ function CreateWorkoutPage() {
           </Button>
         </form>
 
-      //sei que vai editar isso dps colocando aquela setinha no topo para voltar pra home
         <Link to="/">
           <Button className="w-full mt-4">Voltar para Home</Button>
         </Link>

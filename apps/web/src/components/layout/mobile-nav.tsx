@@ -31,7 +31,7 @@ export function MobileNav({ className }: MobileNavProps) {
     <nav className={cn("w-full bg-slate-900 py-1", className)}>
       <ul className="flex justify-around items-center max-w-xl w-full mx-auto">
         <MobileNavLink to="/app" icon={Home} label="Home" exact />
-        <MobileNavLink to="/app/weekly-workout" icon={BicepsFlexed} label="Treinos" />
+        <MobileNavLink to="/app/workouts" icon={BicepsFlexed} label="Treinos" />
         <MobileNavLink to="/app/exercise" icon={Dumbbell} label="Exercícios" />
         <MobileNavLink to="/app/profile" icon={User} label="Perfil" />
       </ul>

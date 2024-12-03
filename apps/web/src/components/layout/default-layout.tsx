@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { MobileNav } from '../ui/mobile-nav';
+import { MobileNav } from './mobile-nav';
 import { FullScreenPage } from '../full-screen-page';
 import { Container } from './container';
 import { Loading } from '../loading';
