@@ -6,34 +6,34 @@ type MobileNavProps = {
   className?: string;
 };
 
+type MobileNavLinkProps = {
+  to: string;
+  exact?: boolean;
+  icon: React.ElementType;
+  label: string;
+};
+
+function MobileNavLink({ to, icon: Icon, label }: MobileNavLinkProps) {
+  const isActive = window.location.pathname === to;
+
+  return (
+    <li className={`group rounded-md w-12 h-12 flex justify-center items-center ${isActive ? 'bg-primary' : 'bg-transparent'}`}>
+      <Link to={to} className={`flex flex-col items-center ${isActive ? 'text-white' : 'text-gray-600 dark:text-gray-300 hover:text-primary'}`}>
+        <Icon className={`h-5 w-5 ${isActive ? 'text-white' : 'group-hover:text-primary'}`} />
+        <span className={`text-xs ${isActive ? 'text-white' : 'group-hover:text-primary'}`}>{label}</span>
+      </Link>
+    </li>
+  );
+}
+
 export function MobileNav({ className }: MobileNavProps) {
   return (
-    <nav className={cn("w-full", className)}>
-      <ul className="flex justify-around items-center py-2">
-        <li>
-          <Link to="/" className="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-primary">
-            <Home className="h-4 w-4" />
-            <span className="text-xs">Home</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/weekly-workout" className="flex flex-col items-center text-gray-600 dark:text-gray-300">
-            <BicepsFlexed className="h-4 w-4" />
-            <span className="text-xs">Treinos</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/exercise" className="flex flex-col items-center text-gray-600 dark:text-gray-300">
-            <Dumbbell className="h-4 w-4" />
-            <span className="text-xs">Exercícios</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/profile" className="flex flex-col items-center text-gray-600 dark:text-gray-300">
-            <User className="h-4 w-4" />
-            <span className="text-xs">Perfil</span>
-          </Link>
-        </li>
+    <nav className={cn("w-full bg-slate-900 py-1", className)}>
+      <ul className="flex justify-around items-center py-2 max-w-xl w-full mx-auto">
+        <MobileNavLink to="/" icon={Home} label="Home" exact />
+        <MobileNavLink to="/weekly-workout" icon={BicepsFlexed} label="Treinos" />
+        <MobileNavLink to="/exercise" icon={Dumbbell} label="Exercícios" />
+        <MobileNavLink to="/profile" icon={User} label="Perfil" />
       </ul>
     </nav>
   );

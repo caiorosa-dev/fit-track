@@ -20,7 +20,7 @@ export function Header({
   const navigate = useNavigate();
 
   return (
-    <header className="space-y-4">
+    <header className="space-y-4 mt-8">
       <section className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           {!hideBackButton && (

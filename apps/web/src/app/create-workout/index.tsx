@@ -44,40 +44,40 @@ function CreateWorkoutPage() {
   };
 
   return (
-    <FullScreenPage className="" gradient>
-    <div className="max-w-xl w-full mx-auto pt-8">
-      <h1 className="text-2xl mb-4">Criar Novo Treino</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Nome do Treino</label>
-          <Controller
-            name="name"
-            control={control}
-            render={({ field }) => <Input {...field} placeholder="Nome do Treino" />}
-          />
-          {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
-        </div>
+    <FullScreenPage>
+      <div className="max-w-xl w-full mx-auto pt-8">
+        <h1 className="text-2xl mb-4">Criar Novo Treino</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Nome do Treino</label>
+            <Controller
+              name="name"
+              control={control}
+              render={({ field }) => <Input {...field} placeholder="Nome do Treino" />}
+            />
+            {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+          </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Data</label>
-          <Controller
-            name="date"
-            control={control}
-            render={({ field }) => <Input type="date" {...field} />}
-          />
-          {errors.date && <p className="text-red-500 text-sm">{errors.date.message}</p>}
-        </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Data</label>
+            <Controller
+              name="date"
+              control={control}
+              render={({ field }) => <Input type="date" {...field} />}
+            />
+            {errors.date && <p className="text-red-500 text-sm">{errors.date.message}</p>}
+          </div>
 
-        <Button type="submit" className="w-full" disabled={loading}>
-          {loading ? "Criando..." : "Criar Treino"}
-        </Button>
-      </form>
+          <Button type="submit" className="w-full" disabled={loading}>
+            {loading ? "Criando..." : "Criar Treino"}
+          </Button>
+        </form>
 
       //sei que vai editar isso dps colocando aquela setinha no topo para voltar pra home
-      <Link to="/">
+        <Link to="/">
           <Button className="w-full mt-4">Voltar para Home</Button>
         </Link>
-    </div>
+      </div>
     </FullScreenPage>
   );
 }
