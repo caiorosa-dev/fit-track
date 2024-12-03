@@ -5,7 +5,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function seed() {
-  const exercisesPath = path.join(__dirname, 'data', 'exercises.json');
+  const exercisesPath = path.join(__dirname, '..', '..', 'data', 'exercises.json');
   const exercisesData = JSON.parse(fs.readFileSync(exercisesPath, 'utf-8'));
 
   const upsertPromises = exercisesData.map((exercise) =>
