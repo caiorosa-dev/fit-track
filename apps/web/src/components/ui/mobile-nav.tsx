@@ -17,19 +17,19 @@ export function MobileNav({ className }: MobileNavProps) {
           </Link>
         </li>
         <li>
-          <Link to="/" className="flex flex-col items-center text-gray-600 dark:text-gray-300">
+          <Link to="/weekly-workout" className="flex flex-col items-center text-gray-600 dark:text-gray-300">
             <BicepsFlexed className="h-4 w-4" />
             <span className="text-xs">Treinos</span>
           </Link>
         </li>
         <li>
-          <Link to="/" className="flex flex-col items-center text-gray-600 dark:text-gray-300">
+          <Link to="/exercise" className="flex flex-col items-center text-gray-600 dark:text-gray-300">
             <Dumbbell className="h-4 w-4" />
             <span className="text-xs">Exercícios</span>
           </Link>
         </li>
         <li>
-          <Link to="/" className="flex flex-col items-center text-gray-600 dark:text-gray-300">
+          <Link to="/profile" className="flex flex-col items-center text-gray-600 dark:text-gray-300">
             <User className="h-4 w-4" />
             <span className="text-xs">Perfil</span>
           </Link>
