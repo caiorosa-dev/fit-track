@@ -1,38 +1,23 @@
-import { FullScreenPage } from '@/components/full-screen-page';
-import { Button, ButtonIcon } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { useZodForm } from '@/hooks/lib/use-zod-form';
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
-import { useAuth } from '@/store/use-auth';
-import { z } from 'zod';
-import { toast } from 'sonner';
-import { usePublicRoute } from '@/hooks/auth/use-public-route';
+import { FullScreenPage } from "@/components/full-screen-page";
+import { Button, ButtonIcon } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useZodForm } from "@/hooks/lib/use-zod-form";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useAuth } from "@/store/use-auth";
+import { z } from "zod";
+import { toast } from "sonner";
+import { usePublicRoute } from "@/hooks/auth/use-public-route";
+import { Logo } from "@/components/ui/logo";
 
-export const Route = createFileRoute('/login/')({
+export const Route = createFileRoute("/login/")({
   component: () => <LoginPage />,
 });
 
 const loginSchema = z.object({
-  email: z.string().email({ message: 'Por favor, insira um email válido.' }),
-  password: z
-    .string()
-    .min(3, { message: 'A senha deve ter pelo menos 3 caracteres.' }),
+  email: z.string().email({ message: "Por favor, insira um email válido." }),
+  password: z.string().min(3, { message: "A senha deve ter pelo menos 3 caracteres." }),
 });
 
 function LoginPage() {
@@ -45,29 +30,28 @@ function LoginPage() {
       await login(values);
     },
     onSubmitSuccess: () => {
-      toast.success('Login realizado com sucesso. Redirecionando...');
+      toast.success("Login realizado com sucesso. Redirecionando...");
 
-      navigate({ to: '/' });
+      navigate({ to: "/" });
     },
     onSubmitError: () => {
-      toast.error('Usuário ou senha inválidos.');
+      toast.error("Usuário ou senha inválidos.");
 
-      form.setValue('password', '');
-      form.setError('password', { message: 'Tente outra senha.' });
+      form.setValue("password", "");
+      form.setError("password", { message: "Tente outra senha." });
     },
   });
 
   usePublicRoute();
 
   return (
-    <FullScreenPage className="flex justify-center items-center">
+    <FullScreenPage className="flex justify-center items-center" gradient>
       <Form {...form}>
+        <Logo className="mx-auto mb-4" />
         <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle className="text-2xl">Login</CardTitle>
-            <CardDescription>
-              Insira seu email e senha para acessar o sistema.
-            </CardDescription>
+            <CardDescription>Insira seu email e senha para acessar o sistema.</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <FormField
@@ -77,11 +61,7 @@ function LoginPage() {
                 <FormItem className="grid gap-2">
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="exemplo@email.com"
-                      {...field}
-                    />
+                    <Input type="email" placeholder="exemplo@email.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -94,11 +74,7 @@ function LoginPage() {
                 <FormItem className="grid gap-2">
                   <FormLabel>Senha</FormLabel>
                   <FormControl>
-                    <Input
-                      type="password"
-                      placeholder="Digite sua senha"
-                      {...field}
-                    />
+                    <Input type="password" placeholder="Digite sua senha" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -106,16 +82,17 @@ function LoginPage() {
             />
           </CardContent>
           <CardFooter>
-            <Button
-              disabled={form.isSubmitting || !form.formState.isValid}
-              type="submit"
-              className="w-full"
-            >
+            <Button disabled={form.isSubmitting || !form.formState.isValid} type="submit" className="w-full">
               <ButtonIcon isLoading={form.isSubmitting} />
               Entrar na sua conta
             </Button>
           </CardFooter>
         </Card>
+        <Link to="/register">
+          <Button disabled={form.isSubmitting} type="submit" className="w-full mt-4">
+            Não tem conta ainda? Crie uma agora!
+          </Button>
+        </Link>
       </Form>
     </FullScreenPage>
   );
