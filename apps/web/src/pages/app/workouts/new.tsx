@@ -72,7 +72,7 @@ function CreateWorkoutPage() {
           </Button>
         </form>
 
-        <Link to="/">
+        <Link to="/app">
           <Button className="w-full mt-4">Voltar para Home</Button>
         </Link>
       </div>

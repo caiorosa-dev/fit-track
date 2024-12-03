@@ -46,7 +46,7 @@ function AppHomePage() {
           {workouts.length === 0 ? (
             <div className="text-center">
               <p className="text-secondary-foreground text-lg">Você não tem nenhum treino para hoje.</p>
-              <Link to="/app/create-workout" className="no-underline">
+              <Link to="/app/workouts/new" className="no-underline">
                 <Button className="mt-4">Criar Novo Treino</Button>
               </Link>
             </div>
