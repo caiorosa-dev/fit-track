@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from "@tanstack/react-router";
 import { ExerciseCard } from '@/components/misc/exercise-card';
@@ -7,7 +7,7 @@ import { Workout, WorkoutExercise } from '@/types/Workout';
 import { useApi } from '@/hooks/lib/use-api';
 import { useQueryClient } from '@tanstack/react-query';
 
-export function WorkoutCard({ workout }: { workout: Workout }) {
+export function WorkoutCard({ workout, children }: { workout: Workout, children?: React.ReactNode }) {
   const api = useApi();
   const queryClient = useQueryClient();
 
@@ -43,6 +43,11 @@ export function WorkoutCard({ workout }: { workout: Workout }) {
           </CardDescription>
         )}
       </CardContent>
+      {children && (
+        <CardFooter>
+          {children}
+        </CardFooter>
+      )}
     </Card>
   );
 }
