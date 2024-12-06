@@ -1,4 +1,4 @@
-import { IsInt, IsPositive, IsDecimal, IsOptional } from 'class-validator';
+import { IsInt, IsPositive, IsOptional, IsNumber } from 'class-validator';
 
 export class CreateExerciseLogDto {
   @IsInt()
@@ -7,17 +7,17 @@ export class CreateExerciseLogDto {
   @IsInt()
   exerciseId: number;
 
-  @IsInt()
+  @IsNumber()
   @IsPositive()
   @IsOptional()
   sets?: number;
 
-  @IsInt()
+  @IsNumber()
   @IsPositive()
   @IsOptional()
   repetitions?: number;
 
-  @IsDecimal()
+  @IsNumber()
   @IsPositive()
   @IsOptional()
   weight?: number;
