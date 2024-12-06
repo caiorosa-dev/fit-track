@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { Header } from "@/components/blocks/header";
+import { Header } from "@/components/layout/header"; 
 import { Button } from "@/components/ui/button";
 import { Loading } from "@/components/loading";
 
