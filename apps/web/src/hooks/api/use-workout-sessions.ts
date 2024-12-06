@@ -9,7 +9,7 @@ type UseWorkoutSessionsHookReturn = {
 };
 
 export function useWorkoutSessions(workoutId?: number): UseWorkoutSessionsHookReturn {
-  const { data, isLoading, isFetching, error } = useApiRoute(['workout-sessions', workoutId?.toString() ?? '']);
+  const { data, isLoading, isFetching, error } = useApiRoute(['workout-sessions', 'workout', workoutId?.toString() ?? '']);
 
   return {
     sessions: data ?? [],

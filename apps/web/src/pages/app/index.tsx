@@ -83,8 +83,11 @@ function AppHomePage() {
               <p className="text-lg font-semibold mb-6 text-primary">Treino de hoje</p>
               <WorkoutCard workout={todayWorkout}>
                 {todaySession && (
-                  <Link to={`/app/workouts/sessions/${todaySession.id}`}>
-                    <Button className='w-full'>Continuar treino</Button>
+                  <Link className='w-full' to={`/app/workouts/sessions/${todaySession.id}`}>
+                    <Button className='w-full'>
+                      <ButtonIcon icon={PlayIcon} />
+                      Continuar treino
+                    </Button>
                   </Link>
                 )}
                 {!todaySession && (

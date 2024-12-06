@@ -1,4 +1,5 @@
 import { Exercise } from './Exercise';
+import { ExerciseLog } from './ExerciseLog';
 
 export type WorkoutExercise = {
   id: number;
@@ -20,4 +21,7 @@ export type WorkoutSession = {
   id: number;
   createdAt: Date;
   workoutId: number;
+  workout: Workout;
+
+  exercises_logs: ExerciseLog[];
 };

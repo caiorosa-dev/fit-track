@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { cn } from '@/lib/utils';
 import { Exercise, ExerciseType } from '@/types/Exercise';
+import { Check } from 'lucide-react';
 import { FaDumbbell, FaShieldAlt, FaRunning } from 'react-icons/fa';
 import { GiMuscleUp, GiLeg, GiAbdominalArmor } from 'react-icons/gi';
 import { MdFitnessCenter } from 'react-icons/md';
@@ -59,18 +60,46 @@ export const EXERCISE_TYPE_VARIANTS: Record<ExerciseType, ExerciseTypeVariant> =
   },
 };
 
-export function ExerciseCard({ exercise, hoverable = true, onClick }: { exercise: Exercise, hoverable?: boolean, onClick?: () => void }) {
+type ExerciseCardProps = {
+  exercise: Exercise,
+  hoverable?: boolean,
+  className?: string,
+  onClick?: () => void,
+  completionData?: CompletionData
+}
+
+type CompletionData = {
+  sets: number;
+  repetitions: number;
+  weight: number;
+}
+
+export function ExerciseCard({ exercise, hoverable = true, className, onClick, completionData }: ExerciseCardProps) {
   const { icon: Icon, iconColor, iconBackgroundColor } = EXERCISE_TYPE_VARIANTS[exercise.type];
 
   return (
-    <div className={cn('flex items-start gap-2 p-2 border border-accent rounded-lg transition-all', hoverable ? 'hover:cursor-pointer hover:border-primary' : '')} onClick={onClick}>
+    <div className={cn('flex items-start gap-2 p-2 border border-accent rounded-lg transition-all', hoverable ? 'hover:cursor-pointer hover:border-primary' : '', className)} onClick={onClick}>
       <div className={cn('p-2 rounded-lg', iconBackgroundColor)}>
         <Icon className={cn('w-4 h-4', iconColor)} />
       </div>
       <div>
-        <p className='text-sm font-medium text-left'>{exercise.name}</p>
+        <header className='flex items-center justify-between'>
+          <div className='flex items-center gap-2'>
+            <p className='text-sm font-medium text-left'>{exercise.name}</p>
+            {completionData?.sets && <Check className='w-4 h-4 text-emerald-500' />}
+          </div>
+          {completionData?.sets && (
+            <div className='flex items-center gap-1'>
+              <p className='text-xs text-primary'>
+                {completionData?.sets > 0 && `${completionData?.sets} séries`}
+                {completionData?.repetitions > 0 && ` de ${completionData?.repetitions} repetições`}
+                {completionData?.weight > 0 && ` com ${completionData?.weight} kg`}
+              </p>
+            </div>
+          )}
+        </header>
         <p className='text-xs text-muted-foreground text-left'>{exercise.description}</p>
-      </div>
+      </div >
     </div >
   );
 }
