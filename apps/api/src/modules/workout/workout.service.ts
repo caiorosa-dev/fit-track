@@ -5,7 +5,7 @@ import { CreateWorkoutDto } from './dto/create-workout.dto';
 
 @Injectable()
 export class WorkoutsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   async create(data: CreateWorkoutDto, userId: number): Promise<Workout> {
     // SQL: INSERT INTO workout (name, weekday, user_id) VALUES (<name>, <weekday>, <userId>);
@@ -27,9 +27,19 @@ export class WorkoutsService {
   }
 
   async findUserWorkouts(userId: number): Promise<Workout[]> {
-    // SQL: SELECT * FROM workout WHERE user_id = <userId> ORDER BY createdAt DESC;
+    // SQL: SELECT workout.*, exercise.* FROM workout
+    // JOIN workout_exercise ON workout.id = workout_exercise.workout_id
+    // JOIN exercise ON workout_exercise.exercise_id = exercise.id
+    // WHERE workout.user_id = <userId> ORDER BY workout.createdAt DESC;
     return this.prisma.workout.findMany({
       where: { userId },
+      include: {
+        workoutExercises: {
+          include: {
+            exercise: true,
+          }
+        }
+      },
       orderBy: { createdAt: 'desc' },
     });
   }

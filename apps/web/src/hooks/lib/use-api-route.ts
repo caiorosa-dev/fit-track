@@ -6,6 +6,7 @@ export function useApiRoute(endpoint: string[]) {
 
   return useQuery({
     queryKey: [...endpoint],
+    refetchInterval: 1000 * 30,
     queryFn: async () => {
       const response = await api.get(`${endpoint.join('/')}`);
 

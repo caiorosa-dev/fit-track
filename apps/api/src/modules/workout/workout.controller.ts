@@ -39,7 +39,7 @@ export class WorkoutsController {
     return workout;
   }
 
-  @Put('id')
+  @Put(':id')
   async update(@AuthenticatedUser() user: AuthenticatedUser, @Param('id', ParseIntPipe) id: number, @Body() data: Prisma.WorkoutUpdateInput) {
     const workout = await this.workoutService.findOne(id);
 

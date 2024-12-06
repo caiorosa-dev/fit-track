@@ -88,7 +88,7 @@ function LoginPage() {
             </CardFooter>
           </Card>
           <Link to="/register">
-            <Button disabled={form.isSubmitting} type="submit" className="w-full mt-4">
+            <Button variant='link-secondary' disabled={form.isSubmitting} type="submit" className="w-full mt-4">
               Não tem conta ainda? Crie uma agora!
             </Button>
           </Link>
