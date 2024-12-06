@@ -47,8 +47,9 @@ function ProfilePage() {
             id="height"
             value={height}
             onChange={(e) => setHeight(e.target.value)}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary text-center"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary text-center text-black"
             placeholder="Ex: 175"
+            style={{ WebkitAppearance: "none", MozAppearance: "textfield" }}
             required
           />
         </div>
@@ -62,8 +63,9 @@ function ProfilePage() {
             id="weight"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary text-center"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary text-center text-black"
             placeholder="Ex: 70"
+            style={{ WebkitAppearance: "none", MozAppearance: "textfield" }}
             required
           />
         </div>
