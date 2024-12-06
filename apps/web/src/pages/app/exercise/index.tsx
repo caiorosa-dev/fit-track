@@ -9,6 +9,8 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import React from 'react';
+import { AddExerciseToWorkoutDialog } from '@/components/misc/add-exercise-to-workout-dialog';
+import { useWorkouts } from '@/hooks/api/use-workouts';
 
 export const Route = createFileRoute('/app/exercise/')({
   component: ExercisesPage,
@@ -28,6 +30,8 @@ const EXERCISE_TYPE_NAMES: Record<ExerciseType, string> = {
 
 function ExercisesPage() {
   const { exercises, isLoading } = useExercises();
+  const { workouts } = useWorkouts();
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState<ExerciseType | 'ALL'>('ALL');
 
@@ -81,7 +85,9 @@ function ExercisesPage() {
               <h2 className='text-lg font-semibold'>{EXERCISE_TYPE_NAMES[type as ExerciseType]}</h2>
               <div className='flex flex-col gap-3'>
                 {exercises.map((exercise) => (
-                  <ExerciseCard key={exercise.id} exercise={exercise} />
+                  <AddExerciseToWorkoutDialog key={exercise.id} exercise={exercise} workouts={workouts}>
+                    <ExerciseCard exercise={exercise} />
+                  </AddExerciseToWorkoutDialog>
                 ))}
               </div>
             </div>
