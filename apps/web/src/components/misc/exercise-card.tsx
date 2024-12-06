@@ -63,7 +63,7 @@ export function ExerciseCard({ exercise, hoverable = true, onClick }: { exercise
   const { icon: Icon, iconColor, iconBackgroundColor } = EXERCISE_TYPE_VARIANTS[exercise.type];
 
   return (
-    <div className={cn('flex items-start gap-2 p-3 border border-accent rounded-lg transition-all', hoverable ? 'hover:cursor-pointer hover:border-primary' : '')} onClick={onClick}>
+    <div className={cn('flex items-start gap-2 p-2 border border-accent rounded-lg transition-all', hoverable ? 'hover:cursor-pointer hover:border-primary' : '')} onClick={onClick}>
       <div className={cn('p-2 rounded-lg', iconBackgroundColor)}>
         <Icon className={cn('w-4 h-4', iconColor)} />
       </div>

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param, Delete, Body } from "@nestjs/common";
+import { Controller, Get, Post, Param, Delete, Body, ParseIntPipe } from "@nestjs/common";
 import { WorkoutSessionService } from "./workout-session.service";
 import { AuthenticatedUser } from 'src/shared/decorators/authenticated-user.decorator';
 
@@ -12,12 +12,12 @@ export class WorkoutSessionController {
   }
 
   @Post()
-  async create(@Body('workoutId') workoutId: number) {
+  async create(@Body('workoutId', ParseIntPipe) workoutId: number) {
     return this.workoutSessionService.create(workoutId);
   }
 
   @Get(':workoutId')
-  async getAllByWorkoutId(@Param('workoutId') workoutId: number) {
+  async getAllByWorkoutId(@Param('workoutId', ParseIntPipe) workoutId: number) {
     return this.workoutSessionService.findAllByWorkoutId(workoutId);
   }
 

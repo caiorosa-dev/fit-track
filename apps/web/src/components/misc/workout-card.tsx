@@ -5,15 +5,18 @@ import { ExerciseCard } from '@/components/misc/exercise-card';
 import { WEEKDAYS } from '@/lib/week-days';
 import { Workout, WorkoutExercise } from '@/types/Workout';
 import { useApi } from '@/hooks/lib/use-api';
+import { useQueryClient } from '@tanstack/react-query';
 
 export function WorkoutCard({ workout }: { workout: Workout }) {
   const api = useApi();
+  const queryClient = useQueryClient();
 
   async function handleClickOnExercise(workoutExercise: WorkoutExercise) {
     const proceed = confirm(`Tem certeza que deseja remover o exercício ${workoutExercise.exercise.name} do treino?`);
 
     if (proceed) {
       await api.delete(`/workout-exercise/${workoutExercise.id}`);
+      queryClient.invalidateQueries({ queryKey: ['workouts'] });
     }
   }
 

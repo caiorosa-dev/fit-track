@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Delete, Param, Body } from "@nestjs/common";
+import { Controller, Post, Get, Delete, Param, Body, ParseIntPipe } from "@nestjs/common";
 import { WorkoutExerciseService } from "./workout-exercise.service";
 import { CreateWorkoutExerciseDto } from './dto/create-workout-exercise.dto';
 
@@ -13,12 +13,12 @@ export class WorkoutExerciseController {
   }
 
   @Get(':workoutId')
-  async findByWorkout(@Param('workoutId') workoutId: number) {
+  async findByWorkout(@Param('workoutId', ParseIntPipe) workoutId: number) {
     return this.workoutExerciseService.findByWorkout(workoutId);
   }
 
   @Delete(':id')
-  async delete(@Param('id') id: number) {
+  async delete(@Param('id', ParseIntPipe) id: number) {
     return this.workoutExerciseService.delete(id);
   }
 }
