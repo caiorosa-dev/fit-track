@@ -4,7 +4,7 @@ import { WorkoutSession } from '@prisma/client';
 
 @Injectable()
 export class WorkoutSessionService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   async create(workoutId: number): Promise<WorkoutSession> {
     // SQL: INSERT INTO workout_session (workout_id) VALUES (<workoutId>);
@@ -42,12 +42,18 @@ export class WorkoutSessionService {
   }
 
   async findById(id: number): Promise<WorkoutSession | null> {
-    // SQL: SELECT * FROM workout_session WHERE id = <id>;
+    // SQL: SELECT workout_session.*, workout.*, exercise_log.*, exercise.name, exercise.type, exercise.description
+    // FROM workout_session
+    // LEFT JOIN workout ON workout_session.workout_id = workout.id
+    // LEFT JOIN exercise_log ON workout_session.id = exercise_log.workout_session_id
+    // LEFT JOIN exercise ON exercise_log.exercise_id = exercise.id
+    // WHERE workout_session.id = <id>;
     return this.prisma.workoutSession.findUnique({
       where: {
         id,
       },
       include: {
+        workout: true,
         exercises_logs: {
           include: {
             exercise: {
