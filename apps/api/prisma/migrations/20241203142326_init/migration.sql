@@ -1,4 +1,4 @@
--- CreateTable
+-- CRIANDO TABELA DE USUÁRIOS
 CREATE TABLE `users` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `email` VARCHAR(191) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE `users` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- CreateTable
+-- CRIANDO TABELA DE EXERCÍCIOS
 CREATE TABLE `exercise` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE `exercise` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- CreateTable
+-- CRIANDO TABELA DE TREINOS
 CREATE TABLE `workout` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `user_id` INTEGER NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `workout` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- CreateTable
+-- CRIANDO TABELA DE EXERCÍCIOS DO TREINO
 CREATE TABLE `workout_exercise` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `order` INTEGER NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `workout_exercise` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- CreateTable
+-- CRIANDO TABELA DE SESSÕES DE TREINO
 CREATE TABLE `workout_session` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
@@ -53,7 +53,7 @@ CREATE TABLE `workout_session` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- CreateTable
+-- CRIANDO TABELA DE LOG DE EXERCÍCIOS
 CREATE TABLE `exercise_log` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `workout_session_id` INTEGER NOT NULL,
@@ -66,20 +66,20 @@ CREATE TABLE `exercise_log` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- AddForeignKey
+-- ADICIONANDO CHAVE ESTRANGEIRA NA TABELA DE TREINOS
 ALTER TABLE `workout` ADD CONSTRAINT `workout_user_id_fkey` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
--- AddForeignKey
+-- ADICIONANDO CHAVE ESTRANGEIRA NA TABELA DE EXERCÍCIOS DO TREINO
 ALTER TABLE `workout_exercise` ADD CONSTRAINT `workout_exercise_workout_id_fkey` FOREIGN KEY (`workout_id`) REFERENCES `workout`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
--- AddForeignKey
+-- ADICIONANDO CHAVE ESTRANGEIRA NA TABELA DE EXERCÍCIOS DO TREINO
 ALTER TABLE `workout_exercise` ADD CONSTRAINT `workout_exercise_exercise_id_fkey` FOREIGN KEY (`exercise_id`) REFERENCES `exercise`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
--- AddForeignKey
+-- ADICIONANDO CHAVE ESTRANGEIRA NA TABELA DE SESSÕES DE TREINO
 ALTER TABLE `workout_session` ADD CONSTRAINT `workout_session_workout_id_fkey` FOREIGN KEY (`workout_id`) REFERENCES `workout`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
--- AddForeignKey
+-- ADICIONANDO CHAVE ESTRANGEIRA NA TABELA DE LOG DE EXERCÍCIOS
 ALTER TABLE `exercise_log` ADD CONSTRAINT `exercise_log_workout_session_id_fkey` FOREIGN KEY (`workout_session_id`) REFERENCES `workout_session`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
--- AddForeignKey
+-- ADICIONANDO CHAVE ESTRANGEIRA NA TABELA DE LOG DE EXERCÍCIOS
 ALTER TABLE `exercise_log` ADD CONSTRAINT `exercise_log_exercise_id_fkey` FOREIGN KEY (`exercise_id`) REFERENCES `exercise`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
