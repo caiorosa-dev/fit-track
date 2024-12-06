@@ -4,7 +4,7 @@ import { Header } from "@/components/blocks/header";
 import { Button } from "@/components/ui/button";
 import { Loading } from "@/components/loading";
 
-export const Route = createFileRoute("/exercises")({
+export const Route = createFileRoute("/app/exercise/")({
   component: ExercisesPage,
 });
 
