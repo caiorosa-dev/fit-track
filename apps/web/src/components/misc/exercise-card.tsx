@@ -82,8 +82,8 @@ export function ExerciseCard({ exercise, hoverable = true, className, onClick, c
       <div className={cn('p-2 rounded-lg', iconBackgroundColor)}>
         <Icon className={cn('w-4 h-4', iconColor)} />
       </div>
-      <div>
-        <header className='flex items-center justify-between'>
+      <div className='w-full'>
+        <header className='flex items-center justify-between w-full'>
           <div className='flex items-center gap-2'>
             <p className='text-sm font-medium text-left'>{exercise.name}</p>
             {completionData?.sets && <Check className='w-4 h-4 text-emerald-500' />}
