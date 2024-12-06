@@ -1,11 +1,11 @@
-export const WEEKDAYS = ['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo'];
+export const WEEKDAYS = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
 
 export const WEEKDAYS_OPTIONS = [
-  { label: "Segunda", value: 1 },
-  { label: "Terça", value: 2 },
-  { label: "Quarta", value: 3 },
-  { label: "Quinta", value: 4 },
-  { label: "Sexta", value: 5 },
-  { label: "Sábado", value: 6 },
-  { label: "Domingo", value: 7 }
+  { label: "Domingo", value: 1 },
+  { label: "Segunda", value: 2 },
+  { label: "Terça", value: 3 },
+  { label: "Quarta", value: 4 },
+  { label: "Quinta", value: 5 },
+  { label: "Sexta", value: 6 },
+  { label: "Sábado", value: 7 }
 ];
