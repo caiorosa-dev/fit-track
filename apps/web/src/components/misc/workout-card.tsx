@@ -3,9 +3,20 @@ import { Button } from '@/components/ui/button';
 import { Link } from "@tanstack/react-router";
 import { ExerciseCard } from '@/components/misc/exercise-card';
 import { WEEKDAYS } from '@/lib/week-days';
-import { Workout } from '@/types/Workout';
+import { Workout, WorkoutExercise } from '@/types/Workout';
+import { useApi } from '@/hooks/lib/use-api';
 
 export function WorkoutCard({ workout }: { workout: Workout }) {
+  const api = useApi();
+
+  async function handleClickOnExercise(workoutExercise: WorkoutExercise) {
+    const proceed = confirm(`Tem certeza que deseja remover o exercício ${workoutExercise.exercise.name} do treino?`);
+
+    if (proceed) {
+      await api.delete(`/workout-exercise/${workoutExercise.id}`);
+    }
+  }
+
   return (
     <Card key={workout.id}>
       <CardHeader className='flex-row justify-between items-center'>
@@ -20,8 +31,8 @@ export function WorkoutCard({ workout }: { workout: Workout }) {
         </div>
       </CardHeader>
       <CardContent className='space-y-3'>
-        {workout.workoutExercises.map((exercise) => (
-          <ExerciseCard key={exercise.id} exercise={exercise.exercise} />
+        {workout.workoutExercises.map((workoutExercise) => (
+          <ExerciseCard onClick={() => handleClickOnExercise(workoutExercise)} key={workoutExercise.exerciseId} exercise={workoutExercise.exercise} />
         ))}
         {workout.workoutExercises.length === 0 && (
           <CardDescription>

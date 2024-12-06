@@ -6,6 +6,7 @@ import { Link } from "@tanstack/react-router";
 import { DefaultLayout } from '@/components/layout/default-layout';
 import { ProtectedRoute } from '@/components/auth/protected-route';
 import { useWorkouts } from '@/hooks/api/use-workouts';
+import { WorkoutCard } from '@/components/misc/workout-card';
 
 export const Route = createFileRoute("/app/")({
   component: AppHomePage,
@@ -32,18 +33,24 @@ function AppHomePage() {
             <div className="text-center">
               <p className="text-secondary-foreground text-lg">Você não possui nenhum treino cadastrado ainda.</p>
               <Link to="/app/workouts/new" className="no-underline">
-                <Button className="mt-4">Criar Novo Treino</Button>
+                <Button className="mt-4">Adicionar novo treino</Button>
               </Link>
             </div>
           )}
           {hasWorkouts && !todayWorkout && (
             <div className="text-center">
               <p className="text-secondary-foreground text-lg">Você não tem nenhum treino para hoje.</p>
+              <Link to="/app/workouts">
+                <Button className='w-full'>
+                  Ver meus treinos
+                </Button>
+              </Link>
             </div>
           )}
           {todayWorkout && (
             <div className="text-center">
-              <p className="text-secondary-foreground text-lg">Treino para hoje:</p>
+              <p className="text-lg font-semibold mb-6 text-primary">Treino de hoje</p>
+              <WorkoutCard workout={todayWorkout} />
             </div>
           )}
         </div>

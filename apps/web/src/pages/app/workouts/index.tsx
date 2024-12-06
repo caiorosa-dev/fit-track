@@ -31,7 +31,7 @@ function WeeklyWorkoutsPage() {
         )}
         <Link to="/app/workouts/new">
           <Button className='w-full' variant={hasWorkouts ? "accent" : "default"}>
-            Criar novo treino
+            Adicionar novo treino
           </Button>
         </Link>
       </main>

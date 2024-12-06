@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { cn } from '@/lib/utils';
 import { Exercise, ExerciseType } from '@/types/Exercise';
 import { FaDumbbell, FaShieldAlt, FaRunning } from 'react-icons/fa';
@@ -67,8 +68,8 @@ export function ExerciseCard({ exercise, hoverable = true, onClick }: { exercise
         <Icon className={cn('w-4 h-4', iconColor)} />
       </div>
       <div>
-        <p className='text-sm font-medium'>{exercise.name}</p>
-        <p className='text-xs text-muted-foreground'>{exercise.description}</p>
+        <p className='text-sm font-medium text-left'>{exercise.name}</p>
+        <p className='text-xs text-muted-foreground text-left'>{exercise.description}</p>
       </div>
     </div >
   );
