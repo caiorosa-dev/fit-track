@@ -46,7 +46,7 @@ function CreateWorkoutPage() {
 
   return (
     <DefaultLayout>
-      <Header>
+      <Header backUrl='/app/workouts'>
         <h1>Criar novo treino</h1>
       </Header>
       <Form {...form} className="grid gap-4 self-center">
