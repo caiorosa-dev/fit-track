@@ -43,7 +43,7 @@ enum ExerciseType {
 model Exercise {
   id          Int          @id @default(autoincrement())
   name        String       @db.VarChar(255)
-  description String
+  description String       @default("Sem descrição")
   type        ExerciseType
 
   workoutExercises WorkoutExercise[]
@@ -54,9 +54,11 @@ model Exercise {
 }
 
 model Workout {
-  id      Int    @id @default(autoincrement())
-  userId  Int    @map("user_id")
-  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id Int @id @default(autoincrement())
+
+  userId Int  @map("user_id")
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   name    String @db.VarChar(255)
   weekday Int
 
