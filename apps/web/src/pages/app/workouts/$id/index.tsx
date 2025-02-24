@@ -70,7 +70,7 @@ function WorkoutDetailsPage() {
           <FormItem>
             <FormLabel>Nome do Treino</FormLabel>
             <FormControl>
-              <Input {...field} placeholder="Costas do Muzy" />
+              <Input {...field} placeholder="Costas do Cbum" />
             </FormControl>
             <FormMessage />
           </FormItem>
